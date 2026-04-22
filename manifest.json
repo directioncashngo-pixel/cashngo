@@ -1,0 +1,25 @@
+{
+  "name": "Cash'nGo — Recherche Prix",
+  "short_name": "Cash'nGo",
+  "description": "Recherche des meilleurs prix d'occasion — Ricardo, Tutti, eBay, Facebook, Anibis",
+  "start_url": "./recherche_prix_occasion.html",
+  "display": "standalone",
+  "background_color": "#e6f4ef",
+  "theme_color": "#0a7a4a",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
