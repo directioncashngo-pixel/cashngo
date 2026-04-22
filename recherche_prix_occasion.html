@@ -163,6 +163,69 @@ button:active{transform:scale(.98)}
 
     <!-- Text tab -->
     <div id="tabText">
+      <div style="margin-bottom:10px">
+        <select id="category" onchange="onCategoryChange()" style="width:100%;font-size:14px">
+          <option value="">🔍 Toutes catégories — saisissez votre recherche</option>
+          <optgroup label="🎮 Jeux vidéo &amp; Consoles">
+            <option value="console PlayStation">PlayStation (PS4, PS5)</option>
+            <option value="console Xbox">Xbox</option>
+            <option value="Nintendo Switch">Nintendo Switch</option>
+            <option value="jeux vidéo">Jeux vidéo</option>
+            <option value="manette jeux vidéo">Manettes</option>
+          </optgroup>
+          <optgroup label="📷 Photo &amp; Vidéo">
+            <option value="appareil photo reflex">Appareil photo reflex</option>
+            <option value="appareil photo hybride">Appareil photo hybride</option>
+            <option value="objectif photo">Objectifs</option>
+            <option value="caméra GoPro">GoPro &amp; caméras sport</option>
+            <option value="drone caméra">Drones</option>
+            <option value="trépied photo">Trépieds &amp; accessoires</option>
+          </optgroup>
+          <optgroup label="🎵 Audio &amp; Musique">
+            <option value="casque audio">Casques audio</option>
+            <option value="écouteurs sans fil">Écouteurs sans fil</option>
+            <option value="enceinte bluetooth">Enceintes Bluetooth</option>
+            <option value="barre de son">Barres de son</option>
+            <option value="amplificateur hifi">Ampli &amp; HiFi</option>
+            <option value="platine vinyle">Platines vinyle</option>
+            <option value="guitare">Guitares</option>
+            <option value="piano clavier">Pianos &amp; claviers</option>
+          </optgroup>
+          <optgroup label="📺 TV &amp; Électronique">
+            <option value="télévision 4K">Télévisions 4K</option>
+            <option value="projecteur vidéo">Projecteurs</option>
+            <option value="box android TV">Box Android TV</option>
+            <option value="décodeur satellite">Décodeurs</option>
+          </optgroup>
+          <optgroup label="⌚ Montres &amp; Bijoux">
+            <option value="montre homme">Montres homme</option>
+            <option value="montre femme">Montres femme</option>
+            <option value="smartwatch">Smartwatch</option>
+            <option value="montre Rolex occasion">Montres de luxe</option>
+            <option value="bijoux or">Bijoux or</option>
+            <option value="bracelet argent">Bijoux argent</option>
+          </optgroup>
+          <optgroup label="🔧 Bricolage &amp; Outillage">
+            <option value="perceuse visseuse">Perceuses &amp; visseuses</option>
+            <option value="scie circulaire">Scies circulaires</option>
+            <option value="ponceuse">Ponceuses</option>
+            <option value="meuleuse">Meuleuses</option>
+            <option value="compresseur air">Compresseurs</option>
+            <option value="établi atelier">Établis</option>
+            <option value="échelle escabeau">Échelles &amp; escabeaux</option>
+          </optgroup>
+          <optgroup label="🚲 Sport &amp; Vélos">
+            <option value="vélo de ville">Vélos de ville</option>
+            <option value="vélo électrique">Vélos électriques</option>
+            <option value="VTT vélo montagne">VTT</option>
+            <option value="vélo route">Vélos de route</option>
+            <option value="trottinette électrique">Trottinettes électriques</option>
+            <option value="ski snowboard">Ski &amp; snowboard</option>
+            <option value="raquette tennis">Tennis &amp; raquettes</option>
+            <option value="tapis de course">Fitness &amp; musculation</option>
+          </optgroup>
+        </select>
+      </div>
       <div class="search-row">
         <input type="text" id="q" placeholder="Ex: iPhone 14, vélo cargo, Dyson V11…" />
         <select id="cond">
@@ -372,6 +435,14 @@ function extractJSON(text){
 }
 
 // ── Text search ──────────────────────────────────────────────────────
+function onCategoryChange(){
+  const val = document.getElementById("category").value;
+  if(val){
+    document.getElementById("q").value = val;
+    document.getElementById("q").focus();
+  }
+}
+
 async function doSearch(){
   const apiKey=getKey();
   if(!apiKey){alert("Veuillez d'abord enregistrer votre clé API Anthropic.");showKeyForm();return}
